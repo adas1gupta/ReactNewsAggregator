@@ -1,6 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import useFetch from "./hooks/useFetch";
+import { useState } from "react";
 
 function App () {
     const categories = ["general", "technology", "sports", "business", "health","entertainment","science"]
@@ -11,8 +12,8 @@ function App () {
 
     return (
         <div>
-            {categories.map((category) => (
-                <button onClick={() => setCategory(category)}>{category}</button>
+            {categories.map((category, index) => (
+                <button onClick={() => setCategory(category)} key={index}>{category}</button>
             ))}
             {(data) && (
                 <div>
